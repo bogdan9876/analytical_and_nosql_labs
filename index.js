@@ -54,7 +54,6 @@ const generateFakeData = () => {
       year: time.year,
       provider_name: faker.random.arrayElement(['AWS', 'Azure', 'GCP']),
       site_type: faker.random.arrayElement(['Blog', 'E-commerce', 'Portfolio', 'Business', 'Personal']),
-      id: i + 1,
       site_price: parseFloat(commerce.price(100, 5000, 2)),
       develop_time: datatype.number({ min: 5, max: 180 }),
       marketing_spend: datatype.number({ min: 100, max: 2000 }),
