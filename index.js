@@ -32,10 +32,10 @@ const generateRandomDate = () => {
   };
 };
 
-const generateFakeData = (numRecords) => {
+const generateFakeData = () => {
   const fakeData = [];
 
-  for (let i = 0; i < numRecords; i++) {
+  for (let i = 0; i < 10000; i++) {
     const location = getRandomLocation();
     const time = generateRandomDate();
 
@@ -60,7 +60,7 @@ const generateFakeData = (numRecords) => {
       date: time.date,
       month: time.month,
       year: time.year,
-      provider_name: faker.company.companyName(),
+      provider_name: faker.random.arrayElement(['AWS', 'Azure', 'GCP']),
       site_type: faker.random.arrayElement(['Blog', 'E-commerce', 'Portfolio', 'Business', 'Personal'])
     };
 
@@ -70,7 +70,7 @@ const generateFakeData = (numRecords) => {
   return fakeData;
 };
 
-const fakeData = generateFakeData(100);
+const fakeData = generateFakeData();
 
 const parser = new Parser();
 const csv = parser.parse(fakeData);
