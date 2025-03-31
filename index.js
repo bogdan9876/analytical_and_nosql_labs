@@ -23,11 +23,21 @@ const getRandomLocation = () => {
   };
 };
 
+const generateRandomDate = () => {
+  const date = faker.date.past(2);
+  return {
+      date: date.getDate(),
+      month: date.getMonth() + 1,
+      year: date.getFullYear()
+  };
+};
+
 const generateFakeData = (numRecords) => {
   const fakeData = [];
 
   for (let i = 0; i < numRecords; i++) {
     const location = getRandomLocation();
+    const time = generateRandomDate();
 
     if (!location) continue;
 
@@ -47,7 +57,9 @@ const generateFakeData = (numRecords) => {
       location_city: location.location_city,
       location_region: location.location_region,
       location_country: location.location_country,
-      action_date: faker.date.past(2).toISOString().split('T')[0],
+      date: time.date,
+      month: time.month,
+      year: time.year,
       provider_name: faker.company.companyName(),
       site_type: faker.random.arrayElement(['Blog', 'E-commerce', 'Portfolio', 'Business', 'Personal'])
     };
