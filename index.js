@@ -42,15 +42,7 @@ const generateFakeData = () => {
     if (!location) continue;
 
     const sale = {
-      id: i + 1,
-      site_price: parseFloat(commerce.price(500, 10000, 2)),
-      develop_time: datatype.number({ min: 5, max: 180 }),
-      marketing_spend: datatype.number({ min: 100, max: 5000 }),
-      location_id: datatype.number({ min: 1, max: 50 }),
       user_id: i + 1,
-      site_id: datatype.number({ min: 1, max: 10 }),
-      method_id: datatype.number({ min: 1, max: 5 }),
-      time_id: datatype.number({ min: 1, max: 365 }),
       user_birth_year: datatype.number({ min: 1960, max: 2005 }),
       user_career: faker.name.jobTitle(),
       user_sex: datatype.boolean() ? 'Male' : 'Female',
@@ -61,7 +53,11 @@ const generateFakeData = () => {
       month: time.month,
       year: time.year,
       provider_name: faker.random.arrayElement(['AWS', 'Azure', 'GCP']),
-      site_type: faker.random.arrayElement(['Blog', 'E-commerce', 'Portfolio', 'Business', 'Personal'])
+      site_type: faker.random.arrayElement(['Blog', 'E-commerce', 'Portfolio', 'Business', 'Personal']),
+      id: i + 1,
+      site_price: parseFloat(commerce.price(100, 5000, 2)),
+      develop_time: datatype.number({ min: 5, max: 180 }),
+      marketing_spend: datatype.number({ min: 100, max: 2000 }),
     };
 
     fakeData.push(sale);
@@ -75,6 +71,6 @@ const fakeData = generateFakeData();
 const parser = new Parser();
 const csv = parser.parse(fakeData);
 
-fs.writeFileSync('sales_data.csv', csv);
+fs.writeFileSync('wordpress_data.csv', csv);
 
-console.log('CSV файл успішно згенеровано!');
+console.log('Success.');
