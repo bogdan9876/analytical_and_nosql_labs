@@ -1,7 +1,9 @@
 import fs from 'fs';
 import faker from 'faker';
-import { Country, State, City }  from 'country-state-city';
+import { Country, State, City } from 'country-state-city';
 import { Parser } from 'json2csv';
+import moment from 'moment';
+
 const { commerce, datatype } = faker;
 
 const getRandomLocation = () => {
@@ -24,11 +26,12 @@ const getRandomLocation = () => {
 };
 
 const generateRandomDate = () => {
-  const date = faker.date.past(2);
+  const date = moment(faker.date.past(2));
   return {
-      date: date.getDate(),
-      month: date.getMonth() + 1,
-      year: date.getFullYear()
+    date: date.format('YYYY-MM-DD'),
+    week: date.isoWeek(),
+    month: date.month() + 1,
+    year: date.year()
   };
 };
 
@@ -50,6 +53,7 @@ const generateFakeData = () => {
       location_region: location.location_region,
       location_country: location.location_country,
       date: time.date,
+      week: time.week,
       month: time.month,
       year: time.year,
       provider_name: faker.random.arrayElement(['AWS', 'Azure', 'GCP']),
