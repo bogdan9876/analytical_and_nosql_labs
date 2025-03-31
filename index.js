@@ -46,7 +46,7 @@ const generateFakeData = () => {
 
     const sale = {
       user_birth_year: datatype.number({ min: 1960, max: 2005 }),
-      user_career: faker.name.jobTitle(),
+      user_career: faker.name.jobType(),
       user_sex: datatype.boolean() ? 'Male' : 'Female',
       location_city: location.location_city,
       location_region: location.location_region,
