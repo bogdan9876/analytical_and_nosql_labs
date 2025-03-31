@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cities.json": "^1.1.47",
+    "country-state-city": "^3.2.1",
     "faker": "^5.5.3",
     "json2csv": "^6.0.0-alpha.2"
   }
