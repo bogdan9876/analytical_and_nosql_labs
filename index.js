@@ -32,6 +32,20 @@ const generateRandomDate = () => {
   };
 };
 
+const generateCommonSiteAttributes = (count) => {
+  const attributes = [];
+
+  for (let i = 0; i < count; i++) {
+    attributes.push({
+      site_price: parseFloat(commerce.price(15, 200, 2)),
+      develop_time: datatype.number({ min: 5, max: 180 }),
+      marketing_spend: datatype.number({ min: 100, max: 2000 }),
+    });
+  }
+
+  return attributes;
+};
+
 const generateUsersWithLocations = (count) => {
   const users = [];
 
@@ -56,6 +70,7 @@ const generateUsersWithLocations = (count) => {
 
 const generateFakeData = () => {
   const uniqueUsers = generateUsersWithLocations(4000);
+  const commonAttributes = generateCommonSiteAttributes(250);
   const fakeData = [];
 
   uniqueUsers.forEach((user) => {
@@ -63,15 +78,16 @@ const generateFakeData = () => {
 
     for (let i = 0; i < repeatCount; i++) {
       const time = generateRandomDate();
+      const siteAttributes = faker.random.arrayElement(commonAttributes);
 
       const sale = {
         ...user,
         date: time.date,
         provider_name: faker.random.arrayElement(['AWS', 'Azure', 'GCP']),
         site_type: faker.random.arrayElement(['Blog', 'E-commerce', 'Portfolio', 'Business', 'Personal']),
-        site_price: parseFloat(commerce.price(100, 5000, 2)),
-        develop_time: datatype.number({ min: 5, max: 180 }),
-        marketing_spend: datatype.number({ min: 100, max: 2000 }),
+        site_price: siteAttributes.site_price,
+        develop_time: siteAttributes.develop_time,
+        marketing_spend: siteAttributes.marketing_spend,
       };
 
       fakeData.push(sale);
