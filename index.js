@@ -28,42 +28,55 @@ const getRandomLocation = () => {
 const generateRandomDate = () => {
   const date = moment(faker.date.past(2));
   return {
-    date: date.format('YYYY-MM-DD'),
-    week: date.isoWeek(),
-    month: date.month() + 1,
-    year: date.year()
+    date: date.format('YYYY-MM-DD')
   };
 };
 
-const generateFakeData = () => {
-  const fakeData = [];
+const generateUsersWithLocations = (count) => {
+  const users = [];
 
-  for (let i = 0; i < 10000; i++) {
+  for (let i = 0; i < count; i++) {
     const location = getRandomLocation();
-    const time = generateRandomDate();
-
     if (!location) continue;
 
-    const sale = {
+    const user = {
       user_birth_year: datatype.number({ min: 1960, max: 2005 }),
       user_career: faker.name.jobType(),
       user_sex: datatype.boolean() ? 'Male' : 'Female',
       location_city: location.location_city,
       location_region: location.location_region,
-      location_country: location.location_country,
-      date: time.date,
-      week: time.week,
-      month: time.month,
-      year: time.year,
-      provider_name: faker.random.arrayElement(['AWS', 'Azure', 'GCP']),
-      site_type: faker.random.arrayElement(['Blog', 'E-commerce', 'Portfolio', 'Business', 'Personal']),
-      site_price: parseFloat(commerce.price(100, 5000, 2)),
-      develop_time: datatype.number({ min: 5, max: 180 }),
-      marketing_spend: datatype.number({ min: 100, max: 2000 }),
+      location_country: location.location_country
     };
 
-    fakeData.push(sale);
+    users.push(user);
   }
+
+  return users;
+};
+
+const generateFakeData = () => {
+  const uniqueUsers = generateUsersWithLocations(4000);
+  const fakeData = [];
+
+  uniqueUsers.forEach((user) => {
+    const repeatCount = datatype.number({ min: 1, max: 4 });
+
+    for (let i = 0; i < repeatCount; i++) {
+      const time = generateRandomDate();
+
+      const sale = {
+        ...user,
+        date: time.date,
+        provider_name: faker.random.arrayElement(['AWS', 'Azure', 'GCP']),
+        site_type: faker.random.arrayElement(['Blog', 'E-commerce', 'Portfolio', 'Business', 'Personal']),
+        site_price: parseFloat(commerce.price(100, 5000, 2)),
+        develop_time: datatype.number({ min: 5, max: 180 }),
+        marketing_spend: datatype.number({ min: 100, max: 2000 }),
+      };
+
+      fakeData.push(sale);
+    }
+  });
 
   return fakeData;
 };
