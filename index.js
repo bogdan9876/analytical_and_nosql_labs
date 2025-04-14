@@ -8,6 +8,7 @@ const { commerce, datatype } = faker;
 
 const getRandomLocation = () => {
   const countries = Country.getAllCountries();
+  
   const randomCountry = faker.random.arrayElement(countries);
   
   const states = State.getStatesOfCountry(randomCountry.isoCode);
