@@ -1,31 +1,31 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="5/11/2025 5:41:26 PM"
+  DTS:CreationDate="5/11/2025 5:44:09 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-1"
   DTS:CreatorName="DESKTOP-1\takei"
-  DTS:DTSID="{4B8B43C6-692C-4A86-B18F-046F742F91DC}"
+  DTS:DTSID="{7C879F27-0E40-4C40-B74F-54EE22E612BB}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package2"
+  DTS:ObjectName="Provider"
   DTS:PackageType="5"
   DTS:VersionBuild="4"
-  DTS:VersionGUID="{4F82A3A1-26D4-48EF-B283-BB43AA37480B}">
+  DTS:VersionGUID="{A760D0A0-6D10-43B4-9FA9-B30B41D0534A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.lab4]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{9F801830-DA99-40E2-900C-3AB4BD278263}"
+      DTS:DTSID="{A469716E-56E2-425B-AA63-08E78684CDC1}"
       DTS:ObjectName="LocalHost.lab4">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=lab4;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-UserDim-{9F801830-DA99-40E2-900C-3AB4BD278263}LocalHost.lab4;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=lab4;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{A469716E-56E2-425B-AA63-08E78684CDC1}LocalHost.lab4;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -35,7 +35,7 @@
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{13dd3149-2113-4fa3-8c6d-a2a27b611990}"
+      DTS:DTSID="{7468B1BB-CA1E-4DBE-8366-5FB54AC30096}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task"
@@ -61,7 +61,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[DimLocation]</property>
+                  name="OpenRowset">[dbo].[DimProvider]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -118,51 +118,38 @@
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[location_city]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[provider_name]"
                       cachedDataType="wstr"
                       cachedLength="100"
-                      cachedName="location_city"
+                      cachedName="provider_name"
                       cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[location_city]" />
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProviderName]"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[provider_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[location_region]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[site_type]"
                       cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="location_region"
+                      cachedLength="50"
+                      cachedName="site_type"
                       cachedSortKeyPosition="2"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[location_region]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[location_country]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="location_country"
-                      cachedSortKeyPosition="3"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[location_country]" />
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SiteType]"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[site_type]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LocationKey]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProviderKey]"
                       dataType="i4"
-                      name="LocationKey" />
+                      name="ProviderKey" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProviderName]"
                       dataType="wstr"
                       length="100"
-                      name="City" />
+                      name="ProviderName" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SiteType]"
                       dataType="wstr"
-                      length="100"
-                      name="Region" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Country]"
-                      dataType="wstr"
-                      length="100"
-                      name="Country" />
+                      length="50"
+                      name="SiteType" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -253,38 +240,38 @@
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[location_city]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[provider_name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[location_city]"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[provider_name]"
                       length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[location_city]"
-                      name="location_city"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[provider_name]"
+                      name="provider_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[location_region]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[site_type]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[location_region]"
-                      length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[location_region]"
-                      name="location_region"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[location_country]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[location_country]"
-                      length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[location_country]"
-                      name="location_country"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[site_type]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[site_type]"
+                      name="site_type"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[provider_name]"
+                      dataType="wstr"
+                      length="100"
+                      name="provider_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[site_type]"
+                      dataType="wstr"
+                      length="50"
+                      name="site_type" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[user_birth_year]"
                       dataType="i4"
@@ -319,16 +306,6 @@
                       dataType="dbDate"
                       name="date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[provider_name]"
-                      dataType="wstr"
-                      length="100"
-                      name="provider_name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[site_type]"
-                      dataType="wstr"
-                      length="50"
-                      name="site_type" />
-                    <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[site_price]"
                       dataType="r8"
                       name="site_price" />
@@ -348,23 +325,17 @@
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[location_city]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[provider_name]"
                       dataType="wstr"
                       length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[location_city]"
-                      name="location_city" />
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[provider_name]"
+                      name="provider_name" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[location_region]"
+                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[site_type]"
                       dataType="wstr"
-                      length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[location_region]"
-                      name="location_region" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[location_country]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[location_country]"
-                      name="location_country" />
+                      length="50"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[site_type]"
+                      name="site_type" />
                     <outputColumn
                       refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -406,11 +377,11 @@
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[location_city]"
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[provider_name]"
                       cachedDataType="wstr"
                       cachedLength="100"
-                      cachedName="location_city"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[location_city]">
+                      cachedName="provider_name"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[provider_name]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -423,11 +394,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[location_region]"
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[site_type]"
                       cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="location_region"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[location_region]">
+                      cachedLength="50"
+                      cachedName="site_type"
+                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[site_type]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -437,23 +408,6 @@
                           dataType="System.Int32"
                           description="Specifies the sort order of the column."
                           name="NewSortKeyPosition">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[location_country]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="location_country"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[location_country]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">3</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -467,48 +421,33 @@
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[location_city]"
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[provider_name]"
                       dataType="wstr"
                       length="100"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[location_city]"
-                      name="location_city"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[provider_name]"
+                      name="provider_name"
                       sortKeyPosition="1">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[location_city]}</property>
+                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[provider_name]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[location_region]"
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[site_type]"
                       dataType="wstr"
-                      length="100"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[location_region]"
-                      name="location_region"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[site_type]"
+                      name="site_type"
                       sortKeyPosition="2">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[location_region]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[location_country]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[location_country]"
-                      name="location_country"
-                      sortKeyPosition="3">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[location_country]}</property>
+                          name="SortColumnId">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[site_type]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -548,7 +487,7 @@
         <NodeLayout
           Size="146.716981132076,41.6603773584906"
           Id="Package\Data Flow Task"
-          TopLeft="300.99999640882,113.999999195337" />
+          TopLeft="354.999994710088,206.99999691546" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -558,31 +497,31 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="148.528301886793,41.6603773584906"
-          Id="Package\Data Flow Task\OLE DB Source"
-          TopLeft="177.999997347594,59.9999991059303" />
-        <NodeLayout
           Size="96,41.6603773584906"
           Id="Package\Data Flow Task\Sort"
-          TopLeft="201.999996989965,154.99999769032" />
+          TopLeft="452.999993249774,222.999996677041" />
+        <NodeLayout
+          Size="148.528301886793,41.6603773584906"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="419.999993741513,128.99999807775" />
         <NodeLayout
           Size="166.641509433963,41.6603773584906"
           Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="170.999997451901,253.999996215105" />
+          TopLeft="418.999993756413,318.99999524653" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Sort Output]"
-          TopLeft="252.160374579424,196.660375048811">
+          TopLeft="501.660370861584,264.660374035532">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,57.3396211662944"
+              EndConnector="0,54.3396212109978"
               Start="0,0"
-              End="0,49.8396211662944">
+              End="0,46.8396212109978">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49.8396211662944" />
+                    End="0,46.8396212109978" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -593,18 +532,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="251.132072640477,101.660376464421">
+          TopLeft="497.632068967341,170.660375436241">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,53.3396212258991"
+              EndConnector="0,52.3396212408005"
               Start="0,0"
-              End="0,45.8396212258991">
+              End="0,44.8396212408005">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.8396212258991" />
+                    End="0,44.8396212408005" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
