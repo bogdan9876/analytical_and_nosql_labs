@@ -11,11 +11,37 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Report"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{28C9C14D-C7F1-4F02-BEB8-E414EA30DA1F}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{2E88F27E-F068-478F-853E-15316E0F6865}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[avg-price-site-by-type]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{7BF49A33-4818-4AA3-BA64-27460106F257}"
+      DTS:ObjectName="avg-price-site-by-type">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[$Package::ExcelFilePath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\reports\default.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[carrer-developtime]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{CD892DA1-2385-402E-8EB9-55967FFD7711}"
+      DTS:ObjectName="carrer-developtime">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\reports\carrer-developtime.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
       DTS:CreationName="EXCEL"
@@ -25,7 +51,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\SiteType_Report.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\reports\SiteType_Report.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -40,17 +66,52 @@
           DTS:ConnectionString="Data Source=.;Initial Catalog=lab4;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Report-{F38A14A8-A2E7-4C1D-A548-AFB3E49A1F51}LocalHost.lab4;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[marketings-country]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{92B35669-CDB5-4DF8-AAF9-1CFDEF1B9F49}"
+      DTS:ObjectName="marketings-country">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\reports\marketings-country.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[year-orders]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{63EFCAA8-8619-4A6D-8E4D-AF70578D96E5}"
+      DTS:ObjectName="year-orders">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\reports\yeart-irfers.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{C18B3EBD-BDF5-4AF0-B38A-D7E81BB46A2A}"
+      DTS:ObjectName="ExcelFilePath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">C:\Users\takei\Desktop\reports\default.xlsx</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
+      DTS:refId="Package\avg-price-site-by-type"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{82C29DDA-0470-4486-97AC-2E91721A7FDF}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task"
+      DTS:ObjectName="avg-price-site-by-type"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -58,7 +119,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\Excel Destination"
+              refId="Package\avg-price-site-by-type\Excel Destination"
               componentClassID="Microsoft.ExcelDestination"
               contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Excel Destination"
@@ -106,43 +167,43 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Excel Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  refId="Package\avg-price-site-by-type\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[avg-price-site-by-type]"
+                  connectionManagerRefId="Package.ConnectionManagers[avg-price-site-by-type]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]"
+                  refId="Package\avg-price-site-by-type\Excel Destination.Inputs[Excel Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Excel Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[SiteType]"
+                      refId="Package\avg-price-site-by-type\Excel Destination.Inputs[Excel Destination Input].Columns[SiteType]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="SiteType"
-                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[SiteType]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteType]" />
+                      externalMetadataColumnId="Package\avg-price-site-by-type\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[SiteType]"
+                      lineageId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteType]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].Columns[AvgSitePrice]"
+                      refId="Package\avg-price-site-by-type\Excel Destination.Inputs[Excel Destination Input].Columns[AvgSitePrice]"
                       cachedDataType="r8"
                       cachedName="AvgSitePrice"
-                      externalMetadataColumnId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[AvgSitePrice]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[AvgSitePrice]" />
+                      externalMetadataColumnId="Package\avg-price-site-by-type\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[AvgSitePrice]"
+                      lineageId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Output].Columns[AvgSitePrice]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[SiteType]"
+                      refId="Package\avg-price-site-by-type\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[SiteType]"
                       dataType="wstr"
                       length="255"
                       name="SiteType" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[AvgSitePrice]"
+                      refId="Package\avg-price-site-by-type\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[AvgSitePrice]"
                       dataType="wstr"
                       length="255"
                       name="AvgSitePrice" />
@@ -151,22 +212,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output]"
+                  refId="Package\avg-price-site-by-type\Excel Destination.Outputs[Excel Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Excel Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]">
+                  synchronousInputId="Package\avg-price-site-by-type\Excel Destination.Inputs[Excel Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\avg-price-site-by-type\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\avg-price-site-by-type\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\avg-price-site-by-type\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\avg-price-site-by-type\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -175,7 +236,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\OLE DB Source"
+              refId="Package\avg-price-site-by-type\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
@@ -229,7 +290,7 @@ GROUP BY P.SiteType</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  refId="Package\avg-price-site-by-type\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LocalHost.lab4]"
                   connectionManagerRefId="Package.ConnectionManagers[LocalHost.lab4]"
                   description="The OLE DB runtime connection used to access the database."
@@ -237,68 +298,68 @@ GROUP BY P.SiteType</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  refId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteType]"
+                      refId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteType]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SiteType]"
+                      externalMetadataColumnId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SiteType]"
                       length="50"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteType]"
+                      lineageId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Output].Columns[SiteType]"
                       name="SiteType"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[AvgSitePrice]"
+                      refId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Output].Columns[AvgSitePrice]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AvgSitePrice]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[AvgSitePrice]"
+                      externalMetadataColumnId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AvgSitePrice]"
+                      lineageId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Output].Columns[AvgSitePrice]"
                       name="AvgSitePrice"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SiteType]"
+                      refId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SiteType]"
                       dataType="wstr"
                       length="50"
                       name="SiteType" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AvgSitePrice]"
+                      refId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AvgSitePrice]"
                       dataType="r8"
                       name="AvgSitePrice" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  refId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SiteType]"
+                      refId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SiteType]"
                       dataType="wstr"
                       length="50"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SiteType]"
+                      lineageId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SiteType]"
                       name="SiteType" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AvgSitePrice]"
+                      refId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AvgSitePrice]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AvgSitePrice]"
+                      lineageId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AvgSitePrice]"
                       name="AvgSitePrice" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -309,10 +370,829 @@ GROUP BY P.SiteType</property>
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\Excel Destination.Inputs[Excel Destination Input]"
+              refId="Package\avg-price-site-by-type.Paths[OLE DB Source Output]"
+              endId="Package\avg-price-site-by-type\Excel Destination.Inputs[Excel Destination Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+              startId="Package\avg-price-site-by-type\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\carrer-developtime"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6675615b-030c-48af-aa27-cb9c82c69a7f}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="carrer-developtime"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\carrer-developtime\Excel Destination"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Excel Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Excel_Destination$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\carrer-developtime\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[carrer-developtime]"
+                  connectionManagerRefId="Package.ConnectionManagers[carrer-developtime]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\carrer-developtime\Excel Destination.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\carrer-developtime\Excel Destination.Inputs[Excel Destination Input].Columns[Career]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Career"
+                      externalMetadataColumnId="Package\carrer-developtime\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Career]"
+                      lineageId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Output].Columns[Career]" />
+                    <inputColumn
+                      refId="Package\carrer-developtime\Excel Destination.Inputs[Excel Destination Input].Columns[AvgDevelopTime]"
+                      cachedDataType="r8"
+                      cachedName="AvgDevelopTime"
+                      externalMetadataColumnId="Package\carrer-developtime\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[AvgDevelopTime]"
+                      lineageId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Output].Columns[AvgDevelopTime]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\carrer-developtime\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Career]"
+                      dataType="wstr"
+                      length="255"
+                      name="Career" />
+                    <externalMetadataColumn
+                      refId="Package\carrer-developtime\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[AvgDevelopTime]"
+                      dataType="wstr"
+                      length="255"
+                      name="AvgDevelopTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\carrer-developtime\Excel Destination.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\carrer-developtime\Excel Destination.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\carrer-developtime\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\carrer-developtime\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\carrer-developtime\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\carrer-developtime\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\carrer-developtime\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    U.Career,
+    AVG(F.DevelopTime) AS AvgDevelopTime
+FROM FactSiteStats F
+JOIN DimUser U ON F.UserKey = U.UserKey
+GROUP BY U.Career</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\carrer-developtime\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.lab4]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.lab4]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Output].Columns[Career]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Career]"
+                      length="100"
+                      lineageId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Output].Columns[Career]"
+                      name="Career"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Output].Columns[AvgDevelopTime]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AvgDevelopTime]"
+                      lineageId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Output].Columns[AvgDevelopTime]"
+                      name="AvgDevelopTime"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Career]"
+                      dataType="wstr"
+                      length="100"
+                      name="Career" />
+                    <externalMetadataColumn
+                      refId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AvgDevelopTime]"
+                      dataType="r8"
+                      name="AvgDevelopTime" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Career]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Career]"
+                      name="Career" />
+                    <outputColumn
+                      refId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AvgDevelopTime]"
+                      dataType="r8"
+                      lineageId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AvgDevelopTime]"
+                      name="AvgDevelopTime" />
+                    <outputColumn
+                      refId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\carrer-developtime.Paths[OLE DB Source Output]"
+              endId="Package\carrer-developtime\Excel Destination.Inputs[Excel Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\carrer-developtime\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\count-orders"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D99EE153-CF4A-4785-ABB3-3C02BB90E2CB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="count-orders"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\count-orders\Excel Destination"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Excel Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Excel_Destination$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\count-orders\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[year-orders]"
+                  connectionManagerRefId="Package.ConnectionManagers[year-orders]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\count-orders\Excel Destination.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\count-orders\Excel Destination.Inputs[Excel Destination Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\count-orders\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Year]"
+                      lineageId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\count-orders\Excel Destination.Inputs[Excel Destination Input].Columns[TotalOrders]"
+                      cachedDataType="i4"
+                      cachedName="TotalOrders"
+                      externalMetadataColumnId="Package\count-orders\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[TotalOrders]"
+                      lineageId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalOrders]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\count-orders\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Year]"
+                      dataType="wstr"
+                      length="255"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\count-orders\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[TotalOrders]"
+                      dataType="wstr"
+                      length="255"
+                      name="TotalOrders" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\count-orders\Excel Destination.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\count-orders\Excel Destination.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\count-orders\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\count-orders\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\count-orders\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\count-orders\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\count-orders\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    D.Year,
+    COUNT(F.StatID) AS TotalOrders
+FROM FactSiteStats F
+JOIN DimDate D ON F.DateKey = D.DateKey
+GROUP BY D.Year
+ORDER BY D.Year</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\count-orders\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.lab4]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.lab4]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      lineageId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalOrders]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalOrders]"
+                      lineageId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalOrders]"
+                      name="TotalOrders"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalOrders]"
+                      dataType="i4"
+                      name="TotalOrders" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      dataType="i4"
+                      lineageId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      name="Year" />
+                    <outputColumn
+                      refId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalOrders]"
+                      dataType="i4"
+                      lineageId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalOrders]"
+                      name="TotalOrders" />
+                    <outputColumn
+                      refId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\count-orders.Paths[OLE DB Source Output]"
+              endId="Package\count-orders\Excel Destination.Inputs[Excel Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\count-orders\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\marketings-country"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{36193BA0-BE2D-47C6-A39C-50502782BE30}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="marketings-country"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\marketings-country\Excel Destination"
+              componentClassID="Microsoft.ExcelDestination"
+              contactInfo="Excel Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Excel Destination"
+              name="Excel Destination"
+              usesDispositions="true">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Excel$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\marketings-country\Excel Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[marketings-country]"
+                  connectionManagerRefId="Package.ConnectionManagers[marketings-country]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\marketings-country\Excel Destination.Inputs[Excel Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Excel Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\marketings-country\Excel Destination.Inputs[Excel Destination Input].Columns[Country]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Country"
+                      externalMetadataColumnId="Package\marketings-country\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]" />
+                    <inputColumn
+                      refId="Package\marketings-country\Excel Destination.Inputs[Excel Destination Input].Columns[TotalMarketingSpend]"
+                      cachedDataType="r8"
+                      cachedName="TotalMarketingSpend"
+                      externalMetadataColumnId="Package\marketings-country\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[TotalMarketingSpend]"
+                      lineageId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalMarketingSpend]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\marketings-country\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="255"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\marketings-country\Excel Destination.Inputs[Excel Destination Input].ExternalColumns[TotalMarketingSpend]"
+                      dataType="wstr"
+                      length="255"
+                      name="TotalMarketingSpend" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\marketings-country\Excel Destination.Outputs[Excel Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Excel Destination Error Output"
+                  synchronousInputId="Package\marketings-country\Excel Destination.Inputs[Excel Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\marketings-country\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\marketings-country\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\marketings-country\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\marketings-country\Excel Destination.Outputs[Excel Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\marketings-country\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+    L.Country,
+    SUM(F.MarketingSpend) AS TotalMarketingSpend
+FROM FactSiteStats F
+JOIN DimLocation L ON F.LocationKey = L.LocationKey
+GROUP BY L.Country</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\marketings-country\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.lab4]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.lab4]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      length="100"
+                      lineageId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Output].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalMarketingSpend]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalMarketingSpend]"
+                      lineageId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Output].Columns[TotalMarketingSpend]"
+                      name="TotalMarketingSpend"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="100"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TotalMarketingSpend]"
+                      dataType="r8"
+                      name="TotalMarketingSpend" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalMarketingSpend]"
+                      dataType="r8"
+                      lineageId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TotalMarketingSpend]"
+                      name="TotalMarketingSpend" />
+                    <outputColumn
+                      refId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\marketings-country.Paths[OLE DB Source Output]"
+              endId="Package\marketings-country\Excel Destination.Inputs[Excel Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\marketings-country\OLE DB Source.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -331,27 +1211,39 @@ GROUP BY P.SiteType</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="146.716981132076,41.6603773584906"
-          Id="Package\Data Flow Task"
-          TopLeft="179.999997317791,180.99999730289" />
+          Size="173.886792452831,41.6603773584906"
+          Id="Package\avg-price-site-by-type"
+          TopLeft="49.9999992549419,145.999997824431" />
+        <NodeLayout
+          Size="161.207547169812,41.6603773584906"
+          Id="Package\carrer-developtime"
+          TopLeft="267.999996006489,145.981134444757" />
+        <NodeLayout
+          Size="163.018867924529,41.6603773584906"
+          Id="Package\marketings-country"
+          TopLeft="53.9999991953373,245.999996334314" />
+        <NodeLayout
+          Size="134.037735849057,41.6603773584906"
+          Id="Package\count-orders"
+          TopLeft="283.99999576807,248.999996289611" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task">
+    design-time-name="Package\avg-price-site-by-type">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="148.528301886793,41.6603773584906"
-          Id="Package\Data Flow Task\OLE DB Source"
-          TopLeft="197.99999704957,118.999998226762" />
-        <NodeLayout
           Size="154.867924528302,41.6603773584906"
-          Id="Package\Data Flow Task\Excel Destination"
+          Id="Package\avg-price-site-by-type\Excel Destination"
           TopLeft="191.999997138977,213.999996811152" />
+        <NodeLayout
+          Size="148.528301886793,41.6603773584906"
+          Id="Package\avg-price-site-by-type\OLE DB Source"
+          TopLeft="197.99999704957,118.999998226762" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          Id="Package\avg-price-site-by-type.Paths[OLE DB Source Output]"
           TopLeft="270.849053698047,160.660375585252">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -376,7 +1268,150 @@ GROUP BY P.SiteType</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source">
+    design-time-name="Package\avg-price-site-by-type\Excel Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\avg-price-site-by-type\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\carrer-developtime">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154.867924528302,41.6603773584906"
+          Id="Package\carrer-developtime\Excel Destination"
+          TopLeft="191.999997138977,213.999996811152" />
+        <NodeLayout
+          Size="148.528301886793,41.6603773584906"
+          Id="Package\carrer-developtime\OLE DB Source"
+          TopLeft="197.99999704957,118.999998226762" />
+        <EdgeLayout
+          Id="Package\carrer-developtime.Paths[OLE DB Source Output]"
+          TopLeft="270.849053698047,160.660375585252">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.3396212258992"
+              Start="0,0"
+              End="0,45.8396212258992">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.8396212258992" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\carrer-developtime\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\marketings-country">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148.528301886793,41.6603773584906"
+          Id="Package\marketings-country\OLE DB Source"
+          TopLeft="153.999997705221,169.999997466803" />
+        <NodeLayout
+          Size="154.867924528302,41.6603773584906"
+          Id="Package\marketings-country\Excel Destination"
+          TopLeft="142.999997869134,314.999995306134" />
+        <EdgeLayout
+          Id="Package\marketings-country.Paths[OLE DB Source Output]"
+          TopLeft="224.349054390951,211.660374825293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,103.339620480841"
+              Start="0,0"
+              End="0,95.8396204808411">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,95.8396204808411" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\count-orders">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148.528301886793,41.6603773584906"
+          Id="Package\count-orders\OLE DB Source"
+          TopLeft="174.999998286367,150.999998643994" />
+        <NodeLayout
+          Size="154.867924528302,41.6603773584906"
+          Id="Package\count-orders\Excel Destination"
+          TopLeft="173.999998301268,296.999996468424" />
+        <EdgeLayout
+          Id="Package\count-orders.Paths[OLE DB Source Output]"
+          TopLeft="250.349054897591,192.660376002485">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,104.339620465939"
+              Start="0,0"
+              End="0,96.8396204659394">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,96.8396204659394" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\marketings-country\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -384,7 +1419,28 @@ GROUP BY P.SiteType</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Excel Destination">
+    design-time-name="Package\marketings-country\Excel Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\count-orders\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\count-orders\Excel Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

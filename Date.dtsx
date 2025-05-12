@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Date"
   DTS:PackageType="5"
-  DTS:VersionBuild="33"
-  DTS:VersionGUID="{D80D42FF-C924-4ED3-991B-995CF2F63BBF}">
+  DTS:VersionBuild="34"
+  DTS:VersionGUID="{FEA1384B-C185-4BC6-BC21-46BA858B5E2A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -682,17 +682,43 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="148.528301886793,41.6603773584906"
-          Id="Package\Data Flow Task\OLE DB Source"
-          TopLeft="262.999996080995,109.999998360872" />
-        <NodeLayout
           Size="166.641509433963,41.6603773584906"
           Id="Package\Data Flow Task\OLE DB Destination"
           TopLeft="248.999996289611,360.999994620681" />
         <NodeLayout
+          Size="96,41.6603773584906"
+          Id="Package\Data Flow Task\Sort"
+          TopLeft="285.999995738268,275.99999588728" />
+        <NodeLayout
           Size="149.433962264151,41.6603773584906"
           Id="Package\Data Flow Task\Derived Column"
           TopLeft="261.999996095896,199.999997019768" />
+        <NodeLayout
+          Size="148.528301886793,41.6603773584906"
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="262.999996080995,109.999998360872" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="333.16037337243,317.66037324577">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.3396213749107"
+              Start="0,0"
+              End="0,35.8396213749107">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.8396213749107" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="336.990562126181,151.660375719363">
@@ -715,10 +741,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="96,41.6603773584906"
-          Id="Package\Data Flow Task\Sort"
-          TopLeft="285.999995738268,275.99999588728" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
           TopLeft="335.35848648312,241.660374378258">
@@ -733,28 +755,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,26.8396215090212" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output]"
-          TopLeft="333.16037337243,317.66037324577">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43.3396213749107"
-              Start="0,0"
-              End="0,35.8396213749107">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.8396213749107" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
