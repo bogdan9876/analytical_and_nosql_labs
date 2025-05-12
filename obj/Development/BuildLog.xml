@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>THE_BEST_LABA_EVER</Name>
-    <LastWriteTime>2025-05-11T20:01:18.2423928Z</LastWriteTime>
+    <LastWriteTime>2025-05-12T08:49:47.9173795Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -34,6 +34,11 @@
     <ProjectBuildItemInfo>
       <Name>Facts.dtsx</Name>
       <LastWriteTime>2025-05-11T22:32:03.0985219Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Report.dtsx</Name>
+      <LastWriteTime>2025-05-12T08:52:55.692341Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
