@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Report"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{2E88F27E-F068-478F-853E-15316E0F6865}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{E66F4E1A-5A54-489D-9A28-58A903664E97}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -22,12 +22,12 @@
       DTS:DTSID="{7BF49A33-4818-4AA3-BA64-27460106F257}"
       DTS:ObjectName="avg-price-site-by-type">
       <DTS:PropertyExpression
-        DTS:Name="ExcelFilePath">@[$Package::ExcelFilePath]</DTS:PropertyExpression>
+        DTS:Name="ExcelFilePath">@[User::ExcelFilePath]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\reports\default.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\reports\avg-price-site2025-05-12.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -35,23 +35,13 @@
       DTS:CreationName="EXCEL"
       DTS:DTSID="{CD892DA1-2385-402E-8EB9-55967FFD7711}"
       DTS:ObjectName="carrer-developtime">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::ExcelFilePathCarrer]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\reports\carrer-developtime.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{D0554AD2-C94C-46F6-B47A-036D8AC0FD97}"
-      DTS:ObjectName="Excel Connection Manager">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\reports\SiteType_Report.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\reports\carrer-developtime2025-05-12.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -71,11 +61,13 @@
       DTS:CreationName="EXCEL"
       DTS:DTSID="{92B35669-CDB5-4DF8-AAF9-1CFDEF1B9F49}"
       DTS:ObjectName="marketings-country">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::ExcelFilePath4]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\reports\marketings-country.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\reports\marketings-country2025-05-12.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -83,26 +75,62 @@
       DTS:CreationName="EXCEL"
       DTS:DTSID="{63EFCAA8-8619-4A6D-8E4D-AF70578D96E5}"
       DTS:ObjectName="year-orders">
+      <DTS:PropertyExpression
+        DTS:Name="ExcelFilePath">@[User::ExcelFilePath3]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\reports\yeart-irfers.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\takei\Desktop\reports\count-orders2025-05-12.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:PackageParameters>
-    <DTS:PackageParameter
+  <DTS:Variables>
+    <DTS:Variable
       DTS:CreationName=""
-      DTS:DataType="8"
-      DTS:DTSID="{C18B3EBD-BDF5-4AF0-B38A-D7E81BB46A2A}"
+      DTS:DTSID="{C3105C49-392F-4CF3-B704-D4ADBDB82F36}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;C:\\Users\\takei\\Desktop\\reports\\avg-price-site&quot; + &#xA;(DT_WSTR, 4) YEAR(GETDATE()) + &quot;-&quot; + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(GETDATE()), 2) + &quot;-&quot; + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(GETDATE()), 2) + &quot;.xlsx&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
       DTS:ObjectName="ExcelFilePath">
-      <DTS:Property
-        DTS:DataType="8"
-        DTS:Name="ParameterValue">C:\Users\takei\Desktop\reports\default.xlsx</DTS:Property>
-    </DTS:PackageParameter>
-  </DTS:PackageParameters>
-  <DTS:Variables />
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\takei\Desktop\reports\avg-price-site2025-05-12.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{313D20C3-824F-4914-8DD8-B62CFB2F1981}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;C:\\Users\\takei\\Desktop\\reports\\count-orders&quot; + &#xA;(DT_WSTR, 4) YEAR(GETDATE()) + &quot;-&quot; + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(GETDATE()), 2) + &quot;-&quot; + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(GETDATE()), 2) + &quot;.xlsx&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExcelFilePath3">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\takei\Desktop\reports\count-orders2025-05-12.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EEBD298D-9A23-4E7A-B016-4A3B2F548880}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;C:\\Users\\takei\\Desktop\\reports\\marketings-country&quot; + &#xA;(DT_WSTR, 4) YEAR(GETDATE()) + &quot;-&quot; + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(GETDATE()), 2) + &quot;-&quot; + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(GETDATE()), 2) + &quot;.xlsx&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExcelFilePath4">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\takei\Desktop\reports\marketings-country2025-05-12.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BD513A51-774A-4B06-B6EC-D342814F06FF}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;C:\\Users\\takei\\Desktop\\reports\\carrer-developtime&quot; + &#xA;(DT_WSTR, 4) YEAR(GETDATE()) + &quot;-&quot; + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) MONTH(GETDATE()), 2) + &quot;-&quot; + &#xA;RIGHT(&quot;0&quot; + (DT_WSTR, 2) DAY(GETDATE()), 2) + &quot;.xlsx&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ExcelFilePathCarrer">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\takei\Desktop\reports\carrer-developtime2025-05-12.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\avg-price-site-by-type"
@@ -952,7 +980,7 @@ ORDER BY D.Year</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">Excel$</property>
+                  name="OpenRowset">Excel_Destination$</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -1213,19 +1241,19 @@ GROUP BY L.Country</property>
         <NodeLayout
           Size="173.886792452831,41.6603773584906"
           Id="Package\avg-price-site-by-type"
-          TopLeft="49.9999992549419,145.999997824431" />
+          TopLeft="115.999998271465,115.999998271466" />
         <NodeLayout
           Size="161.207547169812,41.6603773584906"
           Id="Package\carrer-developtime"
-          TopLeft="267.999996006489,145.981134444757" />
-        <NodeLayout
-          Size="163.018867924529,41.6603773584906"
-          Id="Package\marketings-country"
-          TopLeft="53.9999991953373,245.999996334314" />
+          TopLeft="134.999997988343,204.981133565589" />
         <NodeLayout
           Size="134.037735849057,41.6603773584906"
           Id="Package\count-orders"
-          TopLeft="283.99999576807,248.999996289611" />
+          TopLeft="173.999997407198,302.999995484948" />
+        <NodeLayout
+          Size="163.018867924529,41.6603773584906"
+          Id="Package\marketings-country"
+          TopLeft="140.999997898936,379.999994337559" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1244,18 +1272,18 @@ GROUP BY L.Country</property>
           TopLeft="197.99999704957,118.999998226762" />
         <EdgeLayout
           Id="Package\avg-price-site-by-type.Paths[OLE DB Source Output]"
-          TopLeft="270.849053698047,160.660375585252">
+          TopLeft="270.849053698047,160.660375585253">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,53.3396212258992"
+              EndConnector="0,53.3396212258994"
               Start="0,0"
-              End="0,45.8396212258992">
+              End="0,45.8396212258994">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.8396212258992" />
+                    End="0,45.8396212258994" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1327,6 +1355,19 @@ GROUP BY L.Country</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\carrer-developtime\Excel Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\carrer-developtime\OLE DB Source">
     <Properties>
       <Property>
@@ -1335,56 +1376,18 @@ GROUP BY L.Country</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\marketings-country">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="148.528301886793,41.6603773584906"
-          Id="Package\marketings-country\OLE DB Source"
-          TopLeft="153.999997705221,169.999997466803" />
-        <NodeLayout
-          Size="154.867924528302,41.6603773584906"
-          Id="Package\marketings-country\Excel Destination"
-          TopLeft="142.999997869134,314.999995306134" />
-        <EdgeLayout
-          Id="Package\marketings-country.Paths[OLE DB Source Output]"
-          TopLeft="224.349054390951,211.660374825293">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,103.339620480841"
-              Start="0,0"
-              End="0,95.8396204808411">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,95.8396204808411" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
     design-time-name="Package\count-orders">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="148.528301886793,41.6603773584906"
-          Id="Package\count-orders\OLE DB Source"
-          TopLeft="174.999998286367,150.999998643994" />
-        <NodeLayout
           Size="154.867924528302,41.6603773584906"
           Id="Package\count-orders\Excel Destination"
           TopLeft="173.999998301268,296.999996468424" />
+        <NodeLayout
+          Size="148.528301886793,41.6603773584906"
+          Id="Package\count-orders\OLE DB Source"
+          TopLeft="174.999998286367,150.999998643994" />
         <EdgeLayout
           Id="Package\count-orders.Paths[OLE DB Source Output]"
           TopLeft="250.349054897591,192.660376002485">
@@ -1411,15 +1414,7 @@ GROUP BY L.Country</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\marketings-country\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\marketings-country\Excel Destination">
+    design-time-name="Package\count-orders\Excel Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1439,8 +1434,46 @@ GROUP BY L.Country</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\marketings-country">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="154.867924528302,41.6603773584906"
+          Id="Package\marketings-country\Excel Destination"
+          TopLeft="142.999997869134,314.999995306134" />
+        <NodeLayout
+          Size="148.528301886793,41.6603773584906"
+          Id="Package\marketings-country\OLE DB Source"
+          TopLeft="153.999997705221,169.999997466803" />
+        <EdgeLayout
+          Id="Package\marketings-country.Paths[OLE DB Source Output]"
+          TopLeft="224.349054390951,211.660374825293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,103.339620480841"
+              Start="0,0"
+              End="0,95.8396204808411">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,95.8396204808411" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\count-orders\Excel Destination">
+    design-time-name="Package\marketings-country\Excel Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1449,6 +1482,14 @@ GROUP BY L.Country</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\marketings-country\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
