@@ -1,8 +1,9 @@
 require("dotenv").config();
-const { EventHubConsumerClient } = require("@azure/event-hubs");
+const { EventHubConsumerClient, EventHubProducerClient } = require("@azure/event-hubs");
 const redis = require("redis");
 
-const connectionString = process.env.EVENTHUB_KEY;
+const RAW_HUB_KEY = process.env.EVENTHUB_KEY;
+const ENRICHED_HUB_KEY = process.env.ENRICHED_EVENTHUB_KEY;
 const eventHubName = "test-event33";
 const consumerGroup = "$Default";
 
@@ -26,11 +27,12 @@ function enrichTelemetry(data, metadata) {
 async function main() {
   await redisClient.connect();
 
-  const client = new EventHubConsumerClient(consumerGroup, connectionString, eventHubName);
+  const consumer = new EventHubConsumerClient(consumerGroup, RAW_HUB_KEY, eventHubName);
+  const producer = new EventHubProducerClient(ENRICHED_HUB_KEY);
 
   console.log("Слухаємо повідомлення з Event Hub...");
 
-  const subscription = client.subscribe({
+  const subscription = consumer.subscribe({
     processEvents: async (events, context) => {
       for (const event of events) {
         const data = event.body;
@@ -45,6 +47,8 @@ async function main() {
         const enriched = enrichTelemetry(data, metadata);
 
         console.log("Enriched:", enriched);
+        await producer.sendBatch([{ body: enriched }]);
+        console.log("✅ Відправлено у enriched-events");
       }
     },
 
@@ -55,7 +59,8 @@ async function main() {
 
   setTimeout(async () => {
     await subscription.close();
-    await client.close();
+    await consumer.close();
+    await producer.close();
     await redisClient.quit();
     console.log("Зупинено прослуховування Event Hub.");
   }, 60000);
