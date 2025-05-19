@@ -14,8 +14,8 @@ CONSUMER_GROUP = "$Default"
 
 SAS_TOKEN = os.getenv("AZURE_STORAGE_SAS_TOKEN")
 STORAGE_ACCOUNT_NAME = os.getenv("AZURE_STORAGE_ACCOUNT_NAME")
-CONTAINER_NAME = "$logs"
-DELTA_OUTPUT_PATH = f"abfss://{CONTAINER_NAME}@{STORAGE_ACCOUNT_NAME}.dfs.core.windows.net"
+CONTAINER_NAME = "test-container"
+DELTA_OUTPUT_PATH = f"abfss://{CONTAINER_NAME}@{STORAGE_ACCOUNT_NAME}.dfs.core.windows.net/data"
 
 messages = []
 
