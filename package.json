@@ -1,21 +1,13 @@
 {
-  "name": "nosql2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node scripts/sendTelemetry.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "cities.json": "^1.1.47",
-    "country-state-city": "^3.2.1",
-    "faker": "^5.5.3",
-    "json2csv": "^6.0.0-alpha.2",
-    "moment": "^2.30.1"
+    "@azure/event-hubs": "^6.0.0",
+    "azure-iot-device": "^1.18.3",
+    "azure-iot-device-mqtt": "^1.16.3",
+    "msnodesqlv8": "^4.5.0",
+    "mssql": "^11.0.1",
+    "redis": "^5.0.1"
   }
 }
