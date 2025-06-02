@@ -12,16 +12,27 @@ const connectionStrings = [
 ];
 
 function generateTelemetry(turbineId) {
+  const timestamp = new Date().toISOString();
+
+  const wind_speed = parseFloat((8 + Math.random() * 4).toFixed(2));
+  const wind_direction = Math.floor(Math.random() * 361);
+  const rotor_rpm = parseFloat((10 + wind_speed / 2 + Math.random()).toFixed(2));
+  const active_power = parseInt(1200 + rotor_rpm * 20 + Math.random() * 50);
+
+  const generator_temp = parseInt(60 + (active_power - 1200) / 100 + Math.random() * 5);
+  const gearbox_temp = parseInt(65 + (rotor_rpm - 10) + Math.random() * 5);
+  const pitch_angle = parseInt(10 + (12 - wind_speed) + Math.random() * 5);
+
   return {
     turbineId,
-    timestamp: new Date().toISOString(),
-    wind_speed: parseInt((8 + Math.random() * 4)),
-    wind_direction: Math.floor(Math.random() * 361),
-    rotor_rpm: parseInt((10 + Math.random() * 5)),
-    active_power: Math.floor(1200 + Math.random() * 600),
-    generator_temp: parseInt((60 + Math.random() * 10)),
-    gearbox_temp: parseInt((65 + Math.random() * 10)),
-    pitch_angle: parseInt((10 + Math.random() * 10)),
+    timestamp,
+    wind_speed,
+    wind_direction,
+    rotor_rpm,
+    active_power,
+    generator_temp,
+    gearbox_temp,
+    pitch_angle,
   };
 }
 
