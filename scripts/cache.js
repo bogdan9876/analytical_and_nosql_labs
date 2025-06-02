@@ -7,7 +7,7 @@ const redisClient = redis.createClient({
 });
 
 const config = {
-  server: "test-database33.database.windows.net",
+  server: "test-server33.database.windows.net",
   database: "test-database33",
   options: {
     encrypt: true,

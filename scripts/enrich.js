@@ -57,13 +57,13 @@ async function main() {
     },
   });
 
-  setTimeout(async () => {
-    await subscription.close();
-    await consumer.close();
-    await producer.close();
-    await redisClient.quit();
-    console.log("Зупинено прослуховування Event Hub.");
-  }, 60000);
+  // setTimeout(async () => {
+  //   await subscription.close();
+  //   await consumer.close();
+  //   await producer.close();
+  //   await redisClient.quit();
+  //   console.log("Зупинено прослуховування Event Hub.");
+  // }, 60000);
 }
 
 main().catch(console.error);

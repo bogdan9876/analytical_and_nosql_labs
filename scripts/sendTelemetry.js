@@ -52,6 +52,6 @@ connectionStrings.forEach((connStr, index) => {
       const message = new Message(JSON.stringify(generateTelemetry(deviceId)));
       console.log(`Sending from ${deviceId}:`, message.getData());
       client.sendEvent(message);
-    }, 5000);
+    }, 10000);
   });
 });
