@@ -9,13 +9,13 @@ from deltalake.writer import write_deltalake
 load_dotenv()
 
 EVENT_HUB_CONN_STR = os.getenv("ENRICHED_EVENTHUB_KEY")
-EVENT_HUB_NAME = "test-eventhub2"
+EVENT_HUB_NAME = "test-eventhub633"
 CONSUMER_GROUP = "$Default"
 
 SAS_TOKEN = os.getenv("AZURE_STORAGE_SAS_TOKEN")
 STORAGE_ACCOUNT_NAME = os.getenv("AZURE_STORAGE_ACCOUNT_NAME")
 CONTAINER_NAME = "test-container"
-DELTA_OUTPUT_PATH = f"abfss://{CONTAINER_NAME}@{STORAGE_ACCOUNT_NAME}.dfs.core.windows.net/data"
+DELTA_OUTPUT_PATH = f"abfss://{CONTAINER_NAME}@{STORAGE_ACCOUNT_NAME}.dfs.core.windows.net/data2"
 
 messages = []
 lock = asyncio.Lock()
